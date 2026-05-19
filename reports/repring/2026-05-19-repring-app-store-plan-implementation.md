@@ -9,6 +9,7 @@ Scope: Implement the local and GitHub-facing pieces of the first App Store relea
 - Keep first-upload versioning at `1.3 (1)`.
 - Add in-app Privacy Policy and Support links.
 - Add GitHub Pages-ready public Privacy Policy and Support pages.
+- Publish the GitHub repository and enable GitHub Pages from `/docs`.
 - Add App Store metadata, first-release runbook, release blockers, and issue intake templates.
 - Remove release-warning debt in notification settings and HealthKit workout export paths.
 - Keep v1 observability Apple-only and keep release blockers explicit.
@@ -42,13 +43,15 @@ Scope: Implement the local and GitHub-facing pieces of the first App Store relea
 - XcodeBuildMCP simulator build/install/launch: passed on iPhone 17 / iOS 26.4 with bundle ID `com.drgprfct.RepRing`.
 - XcodeBuildMCP UI snapshot: passed and confirmed the RepRing Today screen launched.
 - `git diff --check`: passed.
+- GitHub Pages build: passed.
+- Privacy Policy URL: `https://drgprfct.github.io/RepRing/privacy.html` returned HTTP 200.
+- Support URL: `https://drgprfct.github.io/RepRing/support.html` returned HTTP 200.
 
 ## Risks
 
 - Apple Developer enrollment is still incomplete, so App ID reservation, signing, App Store Connect app creation, TestFlight upload, and App Review submission remain blocked.
 - `com.drgprfct.RepRing` still needs to be confirmed as available inside Apple Developer after enrollment completes.
 - HealthKit behavior still requires physical-device QA before submission.
-- GitHub Pages may need a short propagation window after repository publication.
 
 ## Rollback
 
@@ -57,4 +60,4 @@ Scope: Implement the local and GitHub-facing pieces of the first App Store relea
 
 ## Outcome
 
-The local App Store release baseline is implemented and validated. The remaining blockers are external account, signing, App Store Connect, live URL propagation, screenshots, and physical-device HealthKit validation.
+The local App Store release baseline is implemented, published to GitHub, and validated. The remaining blockers are external account, signing, App Store Connect, screenshots, and physical-device HealthKit validation.

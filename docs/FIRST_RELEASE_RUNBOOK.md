@@ -3,7 +3,7 @@
 ## Pending Enrollment
 
 - Do not upload to App Store Connect until Apple Developer Program enrollment is complete.
-- Use the GitHub Pages links now, but verify they are live before entering App Store metadata.
+- Use the verified GitHub Pages links for App Store metadata.
 - Keep v1 scope frozen: Today, Dials, History, reminders, optional Apple Health export.
 
 ## After Enrollment Completes

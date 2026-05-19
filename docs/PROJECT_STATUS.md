@@ -20,7 +20,10 @@ Last updated: 2026-05-19
 - A unit test target exists for core model/store behavior.
 - App has HealthKit entitlement and HealthKit usage descriptions.
 - App has no third-party SDKs and no apparent network layer in the imported source.
-- GitHub Pages privacy/support pages are prepared under `docs/`.
+- GitHub repo exists at `https://github.com/drgprfct/RepRing`.
+- GitHub Pages privacy/support pages are live:
+  - `https://drgprfct.github.io/RepRing/privacy.html`
+  - `https://drgprfct.github.io/RepRing/support.html`
 - App Store metadata draft and first-release runbook exist.
 
 ## Release Blockers
@@ -28,7 +31,6 @@ Last updated: 2026-05-19
 - Complete Apple Developer Program enrollment.
 - Confirm `com.drgprfct.RepRing` is available in Apple Developer and has HealthKit enabled.
 - Confirm Apple Developer Team and App Store signing/provisioning.
-- Verify GitHub Pages privacy/support URLs are live after deployment.
 - Capture final App Store screenshots from the submitted build.
 - Run physical-device HealthKit QA. Simulator builds are not enough for HealthKit review confidence.
 
@@ -39,8 +41,7 @@ Last updated: 2026-05-19
 
 ## Next Best Slices
 
-1. Push GitHub repo and enable Pages from `/docs`.
-2. Complete Apple enrollment and confirm production App ID.
-3. Run physical-device HealthKit QA.
-4. Capture App Store screenshots.
-5. Create the App Store Connect app record and upload the first TestFlight build.
+1. Complete Apple enrollment and confirm production App ID.
+2. Run physical-device HealthKit QA.
+3. Capture App Store screenshots.
+4. Create the App Store Connect app record and upload the first TestFlight build.

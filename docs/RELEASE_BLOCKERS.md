@@ -13,15 +13,16 @@ Last updated: 2026-05-19
 
 - Production bundle ID has been changed to `com.drgprfct.RepRing`.
 - Test target bundle ID has been changed to `com.drgprfct.RepRingTests`.
-- GitHub Pages privacy and support pages exist in `docs/`.
+- GitHub repo exists at `https://github.com/drgprfct/RepRing`.
+- GitHub Pages privacy and support pages are live:
+  - `https://drgprfct.github.io/RepRing/privacy.html`
+  - `https://drgprfct.github.io/RepRing/support.html`
 - In-app Privacy Policy and Support links exist in Dials.
 - Notification API warning has been addressed.
 - Deprecated direct `HKWorkout` initializer has been replaced with `HKWorkoutBuilder`.
 
 ## Remaining Manual Release Checks
 
-- Verify `https://drgprfct.github.io/RepRing/privacy.html` is live after GitHub Pages deploys.
-- Verify `https://drgprfct.github.io/RepRing/support.html` is live after GitHub Pages deploys.
 - Confirm `com.drgprfct.RepRing` is available in Apple Developer.
 - Run physical-device HealthKit QA.
 - Capture final App Store screenshots from the submitted build.

@@ -11,6 +11,7 @@ All notable RepRing changes should be recorded here before a release candidate i
 - Set planned production bundle identifiers for the app and test target.
 - Added in-app Privacy Policy and Support links.
 - Added GitHub Pages privacy/support pages and App Store metadata/runbook docs.
+- Published the GitHub repo and enabled GitHub Pages from `/docs`.
 - Migrated notification settings checks to async APIs and Apple Health workout saving to `HKWorkoutBuilder`.
 
 ## 1.3 - Source Import Baseline
