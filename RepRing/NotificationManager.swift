@@ -12,14 +12,13 @@ final class NotificationManager: ObservableObject {
     nonisolated private static let dailyReminderPrefix = "RepRing.dailyReminder."
 
     func refreshSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            Task { @MainActor in
-                self.authorizationStatus = settings.authorizationStatus
-                self.refreshPendingRequests()
+        Task { @MainActor in
+            let settings = await UNUserNotificationCenter.current().notificationSettings()
+            authorizationStatus = settings.authorizationStatus
+            refreshPendingRequests()
 
-                if settings.authorizationStatus == .denied {
-                    self.statusMessage = "Notifications are off. Enable them in Settings to get the nudges."
-                }
+            if settings.authorizationStatus == .denied {
+                statusMessage = "Notifications are off. Enable them in Settings to get the nudges."
             }
         }
     }
@@ -53,55 +52,51 @@ final class NotificationManager: ObservableObject {
     }
 
     func requestAuthorizationAndSchedule(reminders: [ReminderItem], crunchGoal: Int, pushGoal: Int) {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            Task { @MainActor in
-                if let error {
-                    self.statusMessage = "Reminder permission error: \(error.localizedDescription)"
-                    self.refreshPendingRequests()
-                    return
-                }
+        Task { @MainActor in
+            do {
+                let center = UNUserNotificationCenter.current()
+                let granted = try await center.requestAuthorization(options: [.alert, .sound, .badge])
 
                 guard granted else {
-                    self.authorizationStatus = .denied
-                    self.statusMessage = "Notifications were not allowed."
-                    self.refreshPendingRequests()
+                    authorizationStatus = .denied
+                    statusMessage = "Notifications were not allowed."
+                    refreshPendingRequests()
                     return
                 }
 
-                center.getNotificationSettings { settings in
-                    Task { @MainActor in
-                        self.authorizationStatus = settings.authorizationStatus
-                        self.scheduleDailyReminders(reminders: reminders,
-                                                    crunchGoal: crunchGoal,
-                                                    pushGoal: pushGoal)
-                    }
-                }
+                let settings = await center.notificationSettings()
+                authorizationStatus = settings.authorizationStatus
+                scheduleDailyReminders(reminders: reminders,
+                                       crunchGoal: crunchGoal,
+                                       pushGoal: pushGoal)
+            } catch {
+                statusMessage = "Reminder permission error: \(error.localizedDescription)"
+                refreshPendingRequests()
             }
         }
     }
 
     func scheduleDailyReminders(reminders: [ReminderItem], crunchGoal: Int, pushGoal: Int) {
-        let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings { settings in
-            Task { @MainActor in
-                self.authorizationStatus = settings.authorizationStatus
-                switch settings.authorizationStatus {
-                case .authorized, .provisional, .ephemeral:
-                    self.performScheduling(center: center,
-                                           reminders: reminders,
-                                           crunchGoal: crunchGoal,
-                                           pushGoal: pushGoal)
-                case .denied:
-                    self.statusMessage = "Notifications are off. Enable them in Settings to get the nudges."
-                    self.refreshPendingRequests()
-                case .notDetermined:
-                    self.statusMessage = "Tap Save reminders to request notification permission."
-                    self.refreshPendingRequests()
-                @unknown default:
-                    self.statusMessage = "Notification status is unknown."
-                    self.refreshPendingRequests()
-                }
+        Task { @MainActor in
+            let center = UNUserNotificationCenter.current()
+            let settings = await center.notificationSettings()
+
+            authorizationStatus = settings.authorizationStatus
+            switch settings.authorizationStatus {
+            case .authorized, .provisional, .ephemeral:
+                performScheduling(center: center,
+                                  reminders: reminders,
+                                  crunchGoal: crunchGoal,
+                                  pushGoal: pushGoal)
+            case .denied:
+                statusMessage = "Notifications are off. Enable them in Settings to get the nudges."
+                refreshPendingRequests()
+            case .notDetermined:
+                statusMessage = "Tap Save reminders to request notification permission."
+                refreshPendingRequests()
+            @unknown default:
+                statusMessage = "Notification status is unknown."
+                refreshPendingRequests()
             }
         }
     }

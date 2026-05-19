@@ -180,23 +180,65 @@ final class HealthKitManager: ObservableObject {
             HKMetadataKeyIndoorWorkout: true
         ]
 
-        let workout = HKWorkout(activityType: .traditionalStrengthTraining,
-                                start: start,
-                                end: end,
-                                duration: end.timeIntervalSince(start),
-                                totalEnergyBurned: nil,
-                                totalDistance: nil,
-                                metadata: metadata)
+        let configuration = HKWorkoutConfiguration()
+        configuration.activityType = .traditionalStrengthTraining
+        configuration.locationType = .indoor
 
-        let healthStore = healthStore
-        healthStore.save(workout) { success, error in
+        let builder = HKWorkoutBuilder(healthStore: healthStore,
+                                       configuration: configuration,
+                                       device: .local())
+
+        func finishWithError(_ message: String) {
             Task { @MainActor in
+                self.statusMessage = message
+                completion(false)
+            }
+        }
+
+        builder.beginCollection(withStart: start) { success, error in
+            if let error {
+                finishWithError("Could not start Health workout export: \(error.localizedDescription)")
+                return
+            }
+
+            guard success else {
+                finishWithError("Health did not start the workout export.")
+                return
+            }
+
+            builder.addMetadata(metadata) { success, error in
                 if let error {
-                    self.statusMessage = "Could not save workout: \(error.localizedDescription)"
-                    completion(false)
-                } else {
-                    self.statusMessage = success ? statusPrefix : "Health did not save the workout."
-                    completion(success)
+                    finishWithError("Could not attach RepRing workout metadata: \(error.localizedDescription)")
+                    return
+                }
+
+                guard success else {
+                    finishWithError("Health did not accept the RepRing workout metadata.")
+                    return
+                }
+
+                builder.endCollection(withEnd: end) { success, error in
+                    if let error {
+                        finishWithError("Could not finish Health workout export: \(error.localizedDescription)")
+                        return
+                    }
+
+                    guard success else {
+                        finishWithError("Health did not finish the workout export.")
+                        return
+                    }
+
+                    builder.finishWorkout { _, error in
+                        Task { @MainActor in
+                            if let error {
+                                self.statusMessage = "Could not save workout: \(error.localizedDescription)"
+                                completion(false)
+                            } else {
+                                self.statusMessage = statusPrefix
+                                completion(true)
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -16,6 +16,7 @@ struct SettingsView: View {
                     ReminderCard()
                     AppearanceCard()
                     HealthConnectorCard()
+                    LegalCard()
                 }
                 .padding(18)
             }
@@ -307,6 +308,36 @@ private struct HealthConnectorCard: View {
             }
         }
     }
+}
+
+private struct LegalCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label("Release info", systemImage: "checkmark.seal")
+                .font(.title3.bold())
+
+            VStack(spacing: 10) {
+                Link(destination: ReleaseLinks.privacyPolicy) {
+                    Label("Privacy Policy", systemImage: "hand.raised")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+
+                Link(destination: ReleaseLinks.support) {
+                    Label("Support", systemImage: "questionmark.circle")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+            }
+        }
+        .padding(18)
+        .glassCard()
+    }
+}
+
+private enum ReleaseLinks {
+    static let privacyPolicy = URL(string: "https://drgprfct.github.io/RepRing/privacy.html")!
+    static let support = URL(string: "https://drgprfct.github.io/RepRing/support.html")!
 }
 
 #Preview {

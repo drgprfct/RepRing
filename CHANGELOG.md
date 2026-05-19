@@ -8,6 +8,10 @@ All notable RepRing changes should be recorded here before a release candidate i
 - Added a local SDLC baseline for App Store release work.
 - Added a unit test target covering core model and persistence behavior.
 - Fixed `RepStore` persistence isolation so injected `UserDefaults` are used for both reads and writes.
+- Set planned production bundle identifiers for the app and test target.
+- Added in-app Privacy Policy and Support links.
+- Added GitHub Pages privacy/support pages and App Store metadata/runbook docs.
+- Migrated notification settings checks to async APIs and Apple Health workout saving to `HKWorkoutBuilder`.
 
 ## 1.3 - Source Import Baseline
 

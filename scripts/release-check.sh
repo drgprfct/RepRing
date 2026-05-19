@@ -18,8 +18,8 @@ BUILD_NUMBER="$(printf '%s\n' "$BUILD_SETTINGS" | awk -F '= ' '$1 ~ /^[[:space:]
 echo "Bundle id: ${BUNDLE_ID:-unknown}"
 echo "Version: ${MARKETING_VERSION:-unknown} (${BUILD_NUMBER:-unknown})"
 
-if [[ "$BUNDLE_ID" == "com.example.RepRing" ]]; then
-  echo "FAIL: replace placeholder bundle id before App Store release."
+if [[ "$BUNDLE_ID" != "com.drgprfct.RepRing" && "$BUNDLE_ID" != "com.danielwenzel.RepRing" ]]; then
+  echo "FAIL: unexpected release bundle id. Expected com.drgprfct.RepRing or fallback com.danielwenzel.RepRing."
   exit 1
 fi
 

@@ -47,7 +47,7 @@ This workspace is set up for Codex continuation under `/Users/daniel/.openclaw/w
 - Run `make release-check` before treating a build as an App Store candidate.
 - Read `docs/PROJECT_STATUS.md` and `docs/APP_STORE_RELEASE_CHECKLIST.md` before release work.
 
-The current App Store release blocker is the placeholder bundle id `com.example.RepRing`.
+The current App Store release blocker is Apple Developer enrollment/signing, not local build identity. The planned production bundle id is `com.drgprfct.RepRing`.
 
 ## Reminders
 

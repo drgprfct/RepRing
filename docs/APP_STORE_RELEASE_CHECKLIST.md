@@ -6,16 +6,19 @@ Verified against Apple developer docs on 2026-05-19.
 
 - Since 2026-04-28, iOS/iPadOS App Store uploads must be built with the iOS/iPadOS 26 SDK or later.
 - This machine has Xcode 26.4.1, so the local toolchain meets that SDK floor.
-- The app currently uses `com.example.RepRing`; that cannot be the release bundle id.
+- The app now uses planned production bundle id `com.drgprfct.RepRing`.
+- Apple Developer enrollment is still required before App Store Connect actions can complete.
 
 ## Before First App Store Connect Draft
 
-- Choose final bundle id, likely `com.<developer-or-company>.RepRing`.
+- Use final bundle id `com.drgprfct.RepRing`, with `com.danielwenzel.RepRing` as fallback.
 - Confirm Apple Developer Program access and Team ID.
 - Create the explicit App ID with HealthKit enabled.
 - Create or confirm the App Store Connect app record.
 - Decide availability: iPhone only for first release unless there is a deliberate iPad/Mac plan.
-- Prepare Support URL and Privacy Policy URL.
+- Prepare Support URL and Privacy Policy URL:
+  - `https://drgprfct.github.io/RepRing/support.html`
+  - `https://drgprfct.github.io/RepRing/privacy.html`
 
 ## Binary Readiness
 
@@ -27,6 +30,7 @@ Verified against Apple developer docs on 2026-05-19.
 - HealthKit usage descriptions are accurate and plain.
 - No unexpected third-party SDKs are present.
 - No debug-only UI, fake completion states, or placeholder metadata.
+- Apple Developer enrollment is complete before upload.
 
 ## Product Page
 

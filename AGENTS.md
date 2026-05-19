@@ -23,7 +23,7 @@ The Codex/XcodeBuildMCP local profile is intentionally machine-local under `.xco
 
 ## Release Rules
 
-- Do not ship or submit while `PRODUCT_BUNDLE_IDENTIFIER` is `com.example.RepRing`.
+- Do not ship or submit until Apple Developer enrollment, App Store signing, and physical-device HealthKit QA are complete.
 - Do not change signing team, bundle id, capabilities, privacy claims, or App Store metadata without calling it out explicitly.
 - HealthKit is optional user-controlled functionality. Do not add analytics, ads, remote sync, or third-party SDKs casually; they change the privacy label and review risk.
 - Keep the app iPhone-first unless Daniel explicitly asks for iPad, watchOS, or Mac expansion.
