@@ -1,0 +1,27 @@
+.DS_Store
+
+# Xcode user state
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+DerivedData/
+
+# Local build products
+.build/
+build/
+*.ipa
+*.xcarchive
+*.dSYM.zip
+*.dSYM
+
+# Local Codex/XcodeBuildMCP machine profile
+.xcodebuildmcp/
+
+# Swift Package Manager, if the project later adopts packages
+.swiftpm/
+.package.resolved
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
