@@ -323,6 +323,12 @@ private struct LegalCard: View {
                 }
                 .buttonStyle(.bordered)
 
+                Link(destination: ReleaseLinks.termsOfUse) {
+                    Label("Terms of Use", systemImage: "doc.text")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+
                 Link(destination: ReleaseLinks.support) {
                     Label("Support", systemImage: "questionmark.circle")
                         .frame(maxWidth: .infinity)
@@ -337,6 +343,7 @@ private struct LegalCard: View {
 
 private enum ReleaseLinks {
     static let privacyPolicy = URL(string: "https://drgprfct.github.io/RepRing/privacy.html")!
+    static let termsOfUse = URL(string: "https://drgprfct.github.io/RepRing/terms.html")!
     static let support = URL(string: "https://drgprfct.github.io/RepRing/support.html")!
 }
 

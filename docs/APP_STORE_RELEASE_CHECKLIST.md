@@ -19,6 +19,9 @@ Verified against Apple developer docs on 2026-05-19.
 - Prepare Support URL and Privacy Policy URL:
   - `https://drgprfct.github.io/RepRing/support.html`
   - `https://drgprfct.github.io/RepRing/privacy.html`
+- Prepare Terms URL:
+  - `https://drgprfct.github.io/RepRing/terms.html`
+- Keep Apple Standard EULA for v1 unless a deliberate custom EULA decision is made in App Store Connect.
 
 ## Binary Readiness
 

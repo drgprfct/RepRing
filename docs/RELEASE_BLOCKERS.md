@@ -14,9 +14,10 @@ Last updated: 2026-05-19
 - Production bundle ID has been changed to `com.drgprfct.RepRing`.
 - Test target bundle ID has been changed to `com.drgprfct.RepRingTests`.
 - GitHub repo exists at `https://github.com/drgprfct/RepRing`.
-- GitHub Pages privacy and support pages are live:
+- GitHub Pages privacy, support, and terms pages are live:
   - `https://drgprfct.github.io/RepRing/privacy.html`
   - `https://drgprfct.github.io/RepRing/support.html`
+  - `https://drgprfct.github.io/RepRing/terms.html`
 - In-app Privacy Policy and Support links exist in Dials.
 - Notification API warning has been addressed.
 - Deprecated direct `HKWorkout` initializer has been replaced with `HKWorkoutBuilder`.

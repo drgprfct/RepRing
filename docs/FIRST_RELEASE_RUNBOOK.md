@@ -4,6 +4,7 @@
 
 - Do not upload to App Store Connect until Apple Developer Program enrollment is complete.
 - Use the verified GitHub Pages links for App Store metadata.
+- Use Apple's Standard EULA for v1. The public Terms page is a support/reference page, not a custom App Store Connect EULA.
 - Keep v1 scope frozen: Today, Dials, History, reminders, optional Apple Health export.
 
 ## After Enrollment Completes

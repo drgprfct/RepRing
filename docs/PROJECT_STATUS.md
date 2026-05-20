@@ -21,9 +21,10 @@ Last updated: 2026-05-19
 - App has HealthKit entitlement and HealthKit usage descriptions.
 - App has no third-party SDKs and no apparent network layer in the imported source.
 - GitHub repo exists at `https://github.com/drgprfct/RepRing`.
-- GitHub Pages privacy/support pages are live:
+- GitHub Pages privacy/support/terms pages are live:
   - `https://drgprfct.github.io/RepRing/privacy.html`
   - `https://drgprfct.github.io/RepRing/support.html`
+  - `https://drgprfct.github.io/RepRing/terms.html`
 - App Store metadata draft and first-release runbook exist.
 
 ## Release Blockers

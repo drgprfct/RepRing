@@ -19,6 +19,8 @@ Use this for the first App Store Connect app record and submission.
 - Keywords: fitness,pushups,crunches,strength,habit,reps,reminders
 - Support URL: `https://drgprfct.github.io/RepRing/support.html`
 - Privacy Policy URL: `https://drgprfct.github.io/RepRing/privacy.html`
+- Terms URL: `https://drgprfct.github.io/RepRing/terms.html`
+- License Agreement: Use Apple's Standard EULA for v1 unless there is a deliberate later decision to provide a custom EULA in App Store Connect.
 
 ## Description
 
