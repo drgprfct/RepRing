@@ -11,8 +11,8 @@
 
 1. Sign in to Apple Developer and App Store Connect as Account Holder.
 2. Accept outstanding agreements in App Store Connect.
-3. Create explicit bundle ID `com.drgprfct.RepRing` with HealthKit enabled.
-4. If unavailable, use `com.danielwenzel.RepRing` and update the project plus docs.
+3. Confirm explicit bundle ID `com.drgprfct.RepRing` is visible with HealthKit enabled. Xcode automatic development provisioning has already succeeded for this bundle ID and team `52ZF3NP5J2`.
+4. If unavailable in App Store Connect, use `com.danielwenzel.RepRing` and update the project plus docs.
 5. Create App Store Connect app record:
    - Platform: iOS
    - Name: RepRing
@@ -21,6 +21,7 @@
    - Price: Free
    - Category: Health & Fitness
 6. Confirm Xcode signing uses the completed Apple Developer Team.
+7. During Archive upload, confirm Xcode Organizer can create or use App Store distribution signing.
 
 ## Local Release Gate
 
