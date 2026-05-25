@@ -41,11 +41,15 @@ make release-check
 
 Status: build `1.3 (1)` was archived and uploaded from Xcode command-line tooling on 2026-05-25. App Store Connect reported: uploaded package is processing.
 
+Status: build `1.3 (2)` was archived and uploaded from Xcode command-line tooling on 2026-05-25 using the explicit App Store provisioning profile `RepRing App Store`. App Store Connect reported: uploaded package is processing. Prefer build `1.3 (2)` if both builds become available.
+
+Important: Xcode's upload logs observed the current App Store Connect app version record as `1.0`. Before App Review, update the App Store Connect version record to `1.3` so it matches the submitted binary version, unless you deliberately decide to release a `1.0` binary instead.
+
 ## TestFlight Smoke
 
-- Wait until build `1.3 (1)` finishes processing in App Store Connect.
+- Wait until build `1.3 (2)` finishes processing in App Store Connect.
 - Add yourself as an internal tester.
-- Install build `1.3 (1)` from TestFlight on a physical iPhone.
+- Install build `1.3 (2)` from TestFlight on a physical iPhone.
 - Fresh install.
 - Deny notifications.
 - Allow notifications and save multiple reminders.
