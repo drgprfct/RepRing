@@ -39,8 +39,13 @@ make release-check
 5. Upload.
 6. Wait for App Store Connect processing email.
 
+Status: build `1.3 (1)` was archived and uploaded from Xcode command-line tooling on 2026-05-25. App Store Connect reported: uploaded package is processing.
+
 ## TestFlight Smoke
 
+- Wait until build `1.3 (1)` finishes processing in App Store Connect.
+- Add yourself as an internal tester.
+- Install build `1.3 (1)` from TestFlight on a physical iPhone.
 - Fresh install.
 - Deny notifications.
 - Allow notifications and save multiple reminders.
